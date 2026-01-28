@@ -48,7 +48,7 @@ export const HeroSection = () => {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6 text-white"
           >
             The problem isn't that you can't cope.{" "}
-            <span className="text-primary italic">
+            <span className="text-primary">
               It's what coping is costing you.
             </span>
           </motion.h1>
