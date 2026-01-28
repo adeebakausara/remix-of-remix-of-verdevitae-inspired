@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ['Roboto Slab', 'Georgia', 'serif'],
-        sans: ['Roboto', 'system-ui', 'sans-serif'],
+        serif: ['Neometric Alt', 'Poppins', 'system-ui', 'sans-serif'],
+        sans: ['Neometric Alt', 'Poppins', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
