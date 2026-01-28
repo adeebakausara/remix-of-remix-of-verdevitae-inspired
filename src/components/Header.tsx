@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -54,24 +55,11 @@ export const Header = () => {
             }}
             className="flex items-center space-x-2"
           >
-            <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="w-6 h-6"
-              >
-                <path 
-                  d="M12 4L4 8v8l8 4 8-4V8l-8-4z" 
-                  className="fill-primary stroke-primary"
-                  strokeWidth="1"
-                />
-                <path 
-                  d="M12 8l-4 2v4l4 2 4-2v-4l-4-2z" 
-                  className="fill-white stroke-white"
-                  strokeWidth="0.5"
-                />
-              </svg>
-            </div>
+            <img 
+              src={logo} 
+              alt="Verde Vitae Woman" 
+              className="w-10 h-10 rounded-full object-cover"
+            />
             <span className={`font-serif text-xl font-semibold ${isScrolled ? 'text-foreground' : 'text-white'}`}>
               Verde Vitae <span className="text-primary">Woman</span>
             </span>

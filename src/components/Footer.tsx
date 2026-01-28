@@ -1,4 +1,5 @@
 import { ArrowUp } from "lucide-react";
+import logo from "@/assets/logo.jpeg";
 
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -13,24 +14,11 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Copyright */}
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="w-6 h-6"
-              >
-                <path 
-                  d="M12 4L4 8v8l8 4 8-4V8l-8-4z" 
-                  className="fill-primary-foreground stroke-primary-foreground"
-                  strokeWidth="1"
-                />
-                <path 
-                  d="M12 8l-4 2v4l4 2 4-2v-4l-4-2z" 
-                  className="fill-secondary stroke-secondary"
-                  strokeWidth="0.5"
-                />
-              </svg>
-            </div>
+            <img 
+              src={logo} 
+              alt="Verde Vitae Woman" 
+              className="w-10 h-10 rounded-full object-cover"
+            />
             <div>
               <p className="font-serif text-white">
                 Verde Vitae <span className="text-primary">Woman</span>
