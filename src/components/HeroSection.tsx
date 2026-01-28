@@ -16,16 +16,18 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image - positioned to right */}
+      {/* Background Image - positioned far right */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Professional woman executive"
-          className="w-full h-full object-cover object-right"
-        />
-        {/* Gradient overlay on left side to ensure text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-secondary/20" />
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src={heroImage}
+            alt="Professional woman executive"
+            className="absolute right-0 top-0 h-full w-2/3 object-cover object-left"
+          />
+        </div>
+        {/* Stronger gradient overlay on left side to ensure text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 via-40% to-secondary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 via-transparent to-secondary/30" />
       </div>
 
       {/* Content - positioned left */}
@@ -85,7 +87,7 @@ export const HeroSection = () => {
               }}
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 font-medium px-8 py-6 text-base"
+              className="border-white/50 bg-transparent text-white hover:bg-white/10 hover:text-white font-medium px-8 py-6 text-base"
             >
               Learn About S.P.I.R.I.T
             </Button>
