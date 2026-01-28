@@ -5,9 +5,9 @@ import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Brilliant support! The training is excellent, after living with diastasis from pregnancy 25 years ago, it's finally been corrected. I'm feeling stronger, more confident, and so grateful for the guidance and encouragement throughout.",
-    name: "Gillian Walker",
-    role: "Client",
+    quote: "I stopped feeling like I was constantly firefighting. The structure gave me back control without adding more to my plate.",
+    name: "Sarah",
+    role: "Marketing Director",
   },
   {
     quote: "It didn't change who I was. It changed how much effort everything took. That distinction was everything.",

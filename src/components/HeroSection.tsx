@@ -14,18 +14,17 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-[hsl(214,11%,22%)]"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image with Overlay - positioned to the right */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Professional woman executive"
-          className="w-full h-full object-cover object-[75%_center] md:object-[80%_center]"
+          className="w-full h-full object-cover object-center"
         />
-        {/* Strong gradient overlay on left side to protect text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(214,11%,22%)] via-[hsl(214,11%,22%)/85%] to-transparent md:via-[hsl(214,11%,22%)/60%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(214,11%,22%)/80%] via-transparent to-[hsl(214,11%,22%)/40%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
       </div>
 
       {/* Content */}

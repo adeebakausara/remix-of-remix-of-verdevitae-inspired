@@ -10,7 +10,7 @@ const blogPosts = [
   {
     id: 1,
     title: "Why High-Performers Burn Out Faster Than Everyone Else",
-    excerpt: "The traits that make you successful (ambition, drive, perfectionism) are often the same traits that lead to burnout. Understanding this paradox is the first step to sustainable performance.",
+    excerpt: "The traits that make you successful—ambition, drive, perfectionism—are often the same traits that lead to burnout. Understanding this paradox is the first step to sustainable performance.",
     date: "January 15, 2026",
     readTime: "5 min read",
     category: "Burnout",

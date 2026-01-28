@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Phone, Mail, MapPin, Send, ArrowRight, Linkedin, Instagram, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Send, ArrowRight, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const navigate = useNavigate();
+  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,8 +20,13 @@ export const ContactSection = () => {
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
     
-    // Redirect to thank you page
-    navigate("/thank-you");
+    toast({
+      title: "Message Sent",
+      description: "Thank you for reaching out. We'll respond within 24 hours.",
+    });
+    
+    setIsSubmitting(false);
+    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -50,11 +55,8 @@ export const ContactSection = () => {
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-accent" />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <p className="font-medium text-secondary-foreground">Call Us</p>
-                    <CheckCircle className="w-4 h-4 text-accent" />
-                  </div>
+                <div>
+                  <p className="font-medium text-secondary-foreground">Call Us</p>
                   <a href="tel:+447624457139" className="text-accent hover:underline">
                     +44 7624 457139
                   </a>
@@ -65,11 +67,8 @@ export const ContactSection = () => {
                 <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-accent" />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <p className="font-medium text-secondary-foreground">Email Us</p>
-                    <CheckCircle className="w-4 h-4 text-accent" />
-                  </div>
+                <div>
+                  <p className="font-medium text-secondary-foreground">Email Us</p>
                   <a href="mailto:enquiries@verdevitae.com" className="text-accent hover:underline">
                     enquiries@verdevitae.com
                   </a>
