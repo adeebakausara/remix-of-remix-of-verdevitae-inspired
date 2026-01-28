@@ -18,8 +18,8 @@
 
 @layer base {
   :root {
-    /* Light theme - Black background with white/green accents */
-    --background: 0 0% 0%; /* #000000 Black */
+    /* Light theme - White background with proper text colors */
+    --background: 0 0% 100%; /* #ffffff White */
     --foreground: 0 0% 0%; /* #000000 Black body text */
 
     --card: 0 0% 100%; /* White cards */
@@ -36,7 +36,7 @@
     --secondary: 239 48% 26%;
     --secondary-foreground: 0 0% 100%; /* White */
 
-    /* Muted - Light backgrounds */
+    /* Muted - Light grey backgrounds */
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 0%; /* Black */
 
@@ -47,8 +47,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
     --ring: 101 59% 45%;
 
     --radius: 0.5rem;
@@ -56,20 +56,20 @@
     /* Custom tokens */
     --hero-overlay: linear-gradient(to right, hsl(239 48% 26% / 0.95) 0%, hsl(239 48% 26% / 0.80) 50%, hsl(239 48% 26% / 0.5) 100%);
     --text-gradient: linear-gradient(135deg, hsl(101 59% 45%) 0%, hsl(101 59% 55%) 100%);
-    --card-shadow: 0 4px 20px -5px hsl(0 0% 0% / 0.3);
+    --card-shadow: 0 4px 20px -5px hsl(0 0% 0% / 0.1);
     --glow-primary: 0 0 40px hsl(101 59% 45% / 0.3);
     
     /* Typography - Neometric Alt (with Poppins fallback) */
     --font-serif: 'Neometric Alt', 'Poppins', system-ui, sans-serif;
     --font-sans: 'Neometric Alt', 'Poppins', system-ui, sans-serif;
 
-    --sidebar-background: 0 0% 0%;
-    --sidebar-foreground: 0 0% 100%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
     --sidebar-primary: 101 59% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 239 48% 26%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 20%;
+    --sidebar-border: 0 0% 85%;
     --sidebar-ring: 101 59% 45%;
   }
 
