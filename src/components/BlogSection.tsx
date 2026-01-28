@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Calendar, ArrowRight, Clock, Tag } from "lucide-react";
+import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const categories = ["All", "Burnout", "Wellness", "Performance", "Leadership"];
@@ -10,7 +10,7 @@ const blogPosts = [
   {
     id: 1,
     title: "Why High-Performers Burn Out Faster Than Everyone Else",
-    excerpt: "The traits that make you successful—ambition, drive, perfectionism—are often the same traits that lead to burnout. Understanding this paradox is the first step to sustainable performance.",
+    excerpt: "The traits that make you successful, ambition, drive, perfectionism, are often the same traits that lead to burnout. Understanding this paradox is the first step to sustainable performance.",
     date: "January 15, 2026",
     readTime: "5 min read",
     category: "Burnout",
@@ -18,7 +18,7 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "The Hidden Cost of Always Being 'Fine'",
+    title: "The Hidden Cost of Always Being Fine",
     excerpt: "When you've built your identity around being capable and reliable, admitting you're struggling feels impossible. But the mask of competence has a price.",
     date: "January 10, 2026",
     readTime: "7 min read",
@@ -45,8 +45,8 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: "Sleep Isn't a Reward—It's Infrastructure",
-    excerpt: "Most high-performers treat sleep as optional. But sleep is the foundation that everything else—focus, mood, resilience—is built upon.",
+    title: "Sleep Isn't a Reward It's Infrastructure",
+    excerpt: "Most high-performers treat sleep as optional. But sleep is the foundation that everything else, focus, mood, resilience, is built upon.",
     date: "December 20, 2025",
     readTime: "4 min read",
     category: "Wellness",
@@ -65,7 +65,7 @@ export const BlogSection = () => {
     : blogPosts.filter((post) => post.category === selectedCategory);
 
   return (
-    <section id="blog" className="py-24 lg:py-32 section-dark" ref={ref}>
+    <section id="blog" className="py-24 lg:py-32 bg-background" ref={ref}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -76,7 +76,7 @@ export const BlogSection = () => {
           <span className="inline-block text-primary font-medium tracking-wide uppercase text-sm mb-4">
             Latest Articles
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             Insights & Resources
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
@@ -99,7 +99,7 @@ export const BlogSection = () => {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-card text-muted-foreground hover:text-foreground border border-border"
+                  : "bg-muted text-muted-foreground hover:text-foreground border border-border"
               }`}
             >
               {category}
@@ -115,7 +115,7 @@ export const BlogSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className={`group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 card-shadow ${
+              className={`group bg-background rounded-xl overflow-hidden border border-border hover:border-primary/30 transition-all duration-300 card-shadow ${
                 index === 0 ? "lg:col-span-2 lg:row-span-2" : ""
               }`}
             >
@@ -126,9 +126,9 @@ export const BlogSection = () => {
                   alt={post.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium">
+                  <span className="px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
                     {post.category}
                   </span>
                 </div>

@@ -54,19 +54,25 @@ export const Header = () => {
             }}
             className="flex items-center space-x-2"
           >
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 className="w-6 h-6"
-                stroke="currentColor"
-                strokeWidth="2"
               >
-                <path d="M12 3L4 9v12h16V9l-8-6z" className="fill-primary-foreground" />
-                <path d="M12 7l4 3v6h-8v-6l4-3z" className="fill-background" />
+                <path 
+                  d="M12 4L4 8v8l8 4 8-4V8l-8-4z" 
+                  className="fill-primary stroke-primary"
+                  strokeWidth="1"
+                />
+                <path 
+                  d="M12 8l-4 2v4l4 2 4-2v-4l-4-2z" 
+                  className="fill-white stroke-white"
+                  strokeWidth="0.5"
+                />
               </svg>
             </div>
-            <span className="font-serif text-xl font-semibold text-foreground">
+            <span className={`font-serif text-xl font-semibold ${isScrolled ? 'text-foreground' : 'text-white'}`}>
               Verde Vitae <span className="text-primary">Woman</span>
             </span>
           </a>
@@ -81,7 +87,9 @@ export const Header = () => {
                   e.preventDefault();
                   scrollToSection(link.href);
                 }}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                className={`text-sm font-medium transition-colors duration-300 relative group ${
+                  isScrolled ? 'text-muted-foreground hover:text-primary' : 'text-white/80 hover:text-white'
+                }`}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -93,7 +101,7 @@ export const Header = () => {
           <div className="hidden lg:block">
             <Button
               onClick={() => scrollToSection("#contact")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium"
             >
               Book a Consultation
             </Button>
@@ -102,7 +110,7 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-foreground p-2"
+            className={`lg:hidden p-2 ${isScrolled ? 'text-foreground' : 'text-white'}`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -136,7 +144,7 @@ export const Header = () => {
               ))}
               <Button
                 onClick={() => scrollToSection("#contact")}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 w-full mt-4"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 w-full mt-4"
               >
                 Book a Consultation
               </Button>

@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "I stopped feeling like I was constantly firefighting. The structure gave me back control without adding more to my plate.",
-    name: "Sarah",
-    role: "Marketing Director",
+    quote: "Brilliant support! The training is excellent; after living with diastasis from pregnancy 25 years ago, it's finally been corrected. I'm feeling stronger, more confident, and so grateful for the guidance and encouragement throughout.",
+    name: "Gillian Walker",
+    role: "Client",
   },
   {
     quote: "It didn't change who I was. It changed how much effort everything took. That distinction was everything.",
@@ -50,7 +50,7 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-24 lg:py-32 section-cream" ref={ref}>
+    <section id="testimonials" className="py-24 lg:py-32 section-light" ref={ref}>
       <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -58,10 +58,10 @@ export const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-accent font-medium tracking-wide uppercase text-sm mb-4">
+          <span className="inline-block text-primary font-medium tracking-wide uppercase text-sm mb-4">
             Testimonials
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-secondary-foreground">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
             What Our Clients Say
           </h2>
         </motion.div>
@@ -73,8 +73,8 @@ export const TestimonialsSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto mb-16"
         >
-          <div className="relative bg-background rounded-2xl p-8 lg:p-12 card-shadow">
-            <Quote className="absolute top-8 left-8 w-12 h-12 text-primary/20" />
+          <div className="relative bg-secondary rounded-2xl p-8 lg:p-12 card-shadow">
+            <Quote className="absolute top-8 left-8 w-12 h-12 text-primary/30" />
             
             <motion.div
               key={currentIndex}
@@ -84,22 +84,27 @@ export const TestimonialsSection = () => {
               transition={{ duration: 0.5 }}
               className="relative z-10"
             >
-              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-foreground leading-relaxed mb-8 pl-8">
+              <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-white leading-relaxed mb-8 pl-8">
                 "{testimonials[currentIndex].quote}"
               </blockquote>
               <div className="flex items-center gap-4 pl-8">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-lg">
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-lg">
                     {testimonials[currentIndex].name.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">
+                  <p className="font-medium text-white">
                     {testimonials[currentIndex].name}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-white/70">
                     {testimonials[currentIndex].role}
                   </p>
+                </div>
+                <div className="ml-auto flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -108,7 +113,7 @@ export const TestimonialsSection = () => {
             <div className="flex items-center justify-center gap-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors"
+                className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-primary transition-colors"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -119,7 +124,7 @@ export const TestimonialsSection = () => {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentIndex ? "bg-primary" : "bg-border"
+                      index === currentIndex ? "bg-primary" : "bg-white/30"
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -127,7 +132,7 @@ export const TestimonialsSection = () => {
               </div>
               <button
                 onClick={nextTestimonial}
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary transition-colors"
+                className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white/70 hover:text-white hover:border-primary transition-colors"
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -146,26 +151,31 @@ export const TestimonialsSection = () => {
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div
               key={index}
-              className="bg-background/50 rounded-xl p-6 border border-secondary-foreground/10"
+              className="bg-background rounded-xl p-6 border border-border card-shadow"
             >
-              <Quote className="w-8 h-8 text-accent/30 mb-4" />
-              <p className="text-secondary-foreground/80 text-sm leading-relaxed mb-4">
+              <Quote className="w-8 h-8 text-primary/30 mb-4" />
+              <p className="text-foreground/80 text-sm leading-relaxed mb-4">
                 "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-accent font-bold text-sm">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">
                     {testimonial.name.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <p className="font-medium text-secondary-foreground text-sm">
+                  <p className="font-medium text-foreground text-sm">
                     {testimonial.name}
                   </p>
-                  <p className="text-xs text-secondary-foreground/60">
+                  <p className="text-xs text-muted-foreground">
                     {testimonial.role}
                   </p>
                 </div>
+              </div>
+              <div className="flex gap-1 mt-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                ))}
               </div>
             </div>
           ))}
