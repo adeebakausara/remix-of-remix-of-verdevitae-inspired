@@ -4,33 +4,33 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;500;600;700&display=swap');
 
-/* Definition of the design system - VerdeVitae inspired */
+/* Definition of the design system - VerdeVitae exact match */
 
 @layer base {
   :root {
-    /* Light theme - matching verdevitae.com */
+    /* Light theme - matching verdevitae.com exactly */
     --background: 0 0% 100%;
-    --foreground: 210 11% 35%;
+    --foreground: 210 7% 48%; /* Body text grey #7A7A7A */
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 35%;
+    --card-foreground: 210 7% 48%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 35%;
+    --popover-foreground: 210 7% 48%;
 
-    /* Primary - Light blue #6EC1E4 */
+    /* Primary - Light blue/cyan #6EC1E4 for accent text */
     --primary: 197 70% 66%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Dark grey #54595F */
-    --secondary: 213 7% 35%;
+    /* Secondary - Dark navy blue #1e3a5f for hero/dark sections */
+    --secondary: 213 52% 24%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted - Light grey backgrounds */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 8% 48%;
+    /* Muted - Light backgrounds */
+    --muted: 200 20% 97%;
+    --muted-foreground: 213 7% 35%; /* #54595F */
 
-    /* Accent - Green #61CE70 */
+    /* Accent - Green #61CE70 for buttons */
     --accent: 130 55% 60%;
     --accent-foreground: 0 0% 100%;
 
@@ -44,52 +44,52 @@
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --hero-overlay: linear-gradient(to right, hsl(213 30% 25% / 0.9) 0%, hsl(213 30% 25% / 0.7) 40%, transparent 70%);
+    --hero-overlay: linear-gradient(to right, hsl(213 52% 24% / 0.92) 0%, hsl(213 52% 24% / 0.75) 50%, hsl(213 52% 24% / 0.4) 100%);
     --text-gradient: linear-gradient(135deg, hsl(197 70% 66%) 0%, hsl(130 55% 60%) 100%);
-    --card-shadow: 0 4px 20px -5px hsl(213 30% 25% / 0.1);
+    --card-shadow: 0 4px 20px -5px hsl(213 52% 24% / 0.1);
     --glow-primary: 0 0 40px hsl(197 70% 66% / 0.2);
     
-    /* Typography */
+    /* Typography - Roboto family */
     --font-serif: 'Roboto Slab', Georgia, serif;
     --font-sans: 'Roboto', system-ui, sans-serif;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 210 11% 35%;
+    --sidebar-foreground: 210 7% 48%;
     --sidebar-primary: 197 70% 66%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 20% 96%;
-    --sidebar-accent-foreground: 210 11% 35%;
+    --sidebar-accent: 200 20% 97%;
+    --sidebar-accent-foreground: 210 7% 48%;
     --sidebar-border: 214 20% 90%;
     --sidebar-ring: 197 70% 66%;
   }
 
   .dark {
-    --background: 213 30% 20%;
+    --background: 213 52% 20%;
     --foreground: 0 0% 95%;
-    --card: 213 25% 25%;
+    --card: 213 52% 24%;
     --card-foreground: 0 0% 95%;
-    --popover: 213 25% 25%;
+    --popover: 213 52% 24%;
     --popover-foreground: 0 0% 95%;
     --primary: 197 70% 66%;
-    --primary-foreground: 213 30% 20%;
+    --primary-foreground: 213 52% 20%;
     --secondary: 0 0% 95%;
-    --secondary-foreground: 213 30% 20%;
-    --muted: 213 20% 30%;
-    --muted-foreground: 215 15% 65%;
+    --secondary-foreground: 213 52% 20%;
+    --muted: 213 40% 28%;
+    --muted-foreground: 215 15% 70%;
     --accent: 130 55% 60%;
-    --accent-foreground: 213 30% 20%;
+    --accent-foreground: 213 52% 20%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 213 20% 30%;
-    --input: 213 20% 30%;
+    --border: 213 40% 28%;
+    --input: 213 40% 28%;
     --ring: 197 70% 66%;
-    --sidebar-background: 213 30% 20%;
+    --sidebar-background: 213 52% 20%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 197 70% 66%;
-    --sidebar-primary-foreground: 213 30% 20%;
-    --sidebar-accent: 213 25% 25%;
+    --sidebar-primary-foreground: 213 52% 20%;
+    --sidebar-accent: 213 52% 24%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 213 20% 30%;
+    --sidebar-border: 213 40% 28%;
     --sidebar-ring: 197 70% 66%;
   }
 }
