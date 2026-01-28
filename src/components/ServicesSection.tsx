@@ -61,13 +61,13 @@ export const ServicesSection = () => {
           <span className="inline-block text-primary font-medium tracking-wide uppercase text-sm mb-4">
             The Framework
           </span>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-tight mb-6 text-white">
             Burnout is not an Emotional Problem.{" "}
-            <span className="text-gradient italic">It's a Design Problem.</span>
+            <span className="text-primary italic">It's a Design Problem.</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-white/70 text-lg">
             We don't motivate. We don't therapise. We don't ask you to step back from your life. 
-            We help you rebuild how your mind, body, emotions, and daily habits work together—so 
+            We help you rebuild how your mind, body, emotions, and daily habits work together so 
             functioning well becomes easier again.
           </p>
         </motion.div>
@@ -79,8 +79,8 @@ export const ServicesSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-20"
         >
-          <h3 className="font-serif text-2xl text-center mb-4">The S.P.I.R.I.T Framework</h3>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <h3 className="font-serif text-2xl text-center mb-4 text-white">The S.P.I.R.I.T Framework</h3>
+          <p className="text-center text-white/70 mb-12 max-w-2xl mx-auto">
             A structured system designed to reduce internal friction and restore capacity, 
             focusing on five areas that quietly collapse under prolonged pressure:
           </p>
@@ -92,7 +92,7 @@ export const ServicesSection = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 card-shadow hover:glow-green"
+                className="group p-6 rounded-xl bg-white border border-border hover:border-primary/50 transition-all duration-300 card-shadow"
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <pillar.icon className="w-6 h-6 text-primary" />
@@ -107,7 +107,7 @@ export const ServicesSection = () => {
             ))}
           </div>
           
-          <p className="text-center mt-8 text-foreground font-medium">
+          <p className="text-center mt-8 text-white font-medium">
             We don't "fix" these individually. <span className="text-primary">We stabilise the system they sit inside.</span>
           </p>
         </motion.div>
@@ -117,9 +117,9 @@ export const ServicesSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-card rounded-2xl p-8 lg:p-12 border border-border"
+          className="bg-white rounded-2xl p-8 lg:p-12 border border-border"
         >
-          <h3 className="font-serif text-2xl text-center mb-12">How the Work Unfolds</h3>
+          <h3 className="font-serif text-2xl text-center mb-12 text-foreground">How the Work Unfolds</h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((item, index) => (
@@ -146,7 +146,7 @@ export const ServicesSection = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium px-8 group"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium px-8 group"
             >
               Book a Private Consultation
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -161,8 +161,8 @@ export const ServicesSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-20 text-center"
         >
-          <h3 className="font-serif text-2xl mb-4">What tends to improve</h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <h3 className="font-serif text-2xl mb-4 text-white">What tends to improve</h3>
+          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
             Clients don't arrive wanting transformation. They arrive wanting things to stop being so hard. 
             Over time, they often report:
           </p>
@@ -177,14 +177,14 @@ export const ServicesSection = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border"
+                className="flex items-center gap-3 p-4 bg-white rounded-lg border border-border"
               >
-                <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
                 <span className="text-foreground text-sm text-left">{item}</span>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-muted-foreground italic">
+          <p className="mt-8 text-white/70 italic">
             Not because they tried harder, but because the system finally supported them.
           </p>
         </motion.div>

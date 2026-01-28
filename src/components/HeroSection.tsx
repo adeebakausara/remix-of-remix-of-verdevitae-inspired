@@ -16,18 +16,19 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image with Overlay */}
+      {/* Background Image - positioned to right */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Professional woman executive"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
+        {/* Gradient overlay on left side to ensure text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-secondary/20" />
       </div>
 
-      {/* Content */}
+      {/* Content - positioned left */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
         <div className="max-w-2xl">
           <motion.div
@@ -44,10 +45,10 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6 text-white"
           >
             The problem isn't that you can't cope.{" "}
-            <span className="text-gradient italic">
+            <span className="text-primary italic">
               It's what coping is costing you.
             </span>
           </motion.h1>
@@ -56,7 +57,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl"
+            className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl"
           >
             You're functioning, but decision quality is slipping, patience is thinner 
             than it used to be, and recovery no longer happens on its own. If nothing 
@@ -72,7 +73,7 @@ export const HeroSection = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium px-8 py-6 text-base group"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium px-8 py-6 text-base group"
             >
               Book a Private Consultation
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -84,7 +85,7 @@ export const HeroSection = () => {
               }}
               size="lg"
               variant="outline"
-              className="border-foreground/30 text-foreground hover:bg-foreground/10 font-medium px-8 py-6 text-base"
+              className="border-white/30 text-white hover:bg-white/10 font-medium px-8 py-6 text-base"
             >
               Learn About S.P.I.R.I.T
             </Button>
@@ -95,16 +96,16 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="mt-12 pt-8 border-t border-border/50"
+            className="mt-12 pt-8 border-t border-white/20"
           >
-            <p className="text-sm text-muted-foreground mb-4">Trusted by high-performing women worldwide</p>
-            <div className="flex flex-wrap gap-6 items-center text-muted-foreground/60">
+            <p className="text-sm text-white/70 mb-4">Trusted by high-performing women worldwide</p>
+            <div className="flex flex-wrap gap-6 items-center text-white/50">
               <span className="text-xs uppercase tracking-widest">Executives</span>
-              <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+              <span className="w-1 h-1 rounded-full bg-white/40" />
               <span className="text-xs uppercase tracking-widest">Entrepreneurs</span>
-              <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+              <span className="w-1 h-1 rounded-full bg-white/40" />
               <span className="text-xs uppercase tracking-widest">Professionals</span>
-              <span className="w-1 h-1 rounded-full bg-muted-foreground/40" />
+              <span className="w-1 h-1 rounded-full bg-white/40" />
               <span className="text-xs uppercase tracking-widest">Leaders</span>
             </div>
           </motion.div>
@@ -121,7 +122,7 @@ export const HeroSection = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center text-muted-foreground"
+          className="flex flex-col items-center text-white/60"
         >
           <span className="text-xs uppercase tracking-widest mb-2">Scroll</span>
           <div className="w-px h-8 bg-gradient-to-b from-primary to-transparent" />
