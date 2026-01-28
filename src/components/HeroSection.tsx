@@ -16,18 +16,22 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image - positioned far right */}
+      {/* Background Image - positioned far right, not overlapping content */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 w-full h-full">
+        {/* Dark navy base background */}
+        <div className="absolute inset-0 bg-secondary" />
+        {/* Image container - positioned on right half only */}
+        <div className="absolute right-0 top-0 h-full w-1/2 lg:w-[45%]">
           <img
             src={heroImage}
             alt="Professional woman executive"
-            className="absolute right-0 top-0 h-full w-2/3 object-cover object-left"
+            className="h-full w-full object-cover object-center"
           />
+          {/* Soft fade from left edge of image */}
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/60 via-30% to-transparent" />
         </div>
-        {/* Stronger gradient overlay on left side to ensure text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 via-40% to-secondary/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/50 via-transparent to-secondary/30" />
+        {/* Subtle top/bottom gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-secondary/20" />
       </div>
 
       {/* Content - positioned left */}
