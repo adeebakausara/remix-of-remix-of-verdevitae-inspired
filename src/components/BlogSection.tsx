@@ -4,6 +4,30 @@ import { useRef, useState } from "react";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const CALENDLY_URL = "https://calendly.com/apex-consultancy-and-coaching/discovery-call";
+
+// Helper function to render content with "Book a call" as a highlighted link
+const renderContentWithCalendlyLink = (content: string) => {
+  const regex = /(Book a call)/gi;
+  const parts = content.split(regex);
+  
+  return parts.map((part, index) => {
+    if (part.toLowerCase() === "book a call") {
+      return (
+        <a
+          key={index}
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent font-semibold hover:underline transition-colors"
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+};
 const categories = ["All", "Burnout", "Wellness", "Performance", "Leadership"];
 
 const blogPosts = [
@@ -440,19 +464,19 @@ export const BlogSection = () => {
                   {post.title}
                 </h3>
 
-                <p className={`text-muted-foreground leading-relaxed mb-4 ${
+                <div className={`text-muted-foreground leading-relaxed mb-4 whitespace-pre-line ${
                   index === 0 ? "text-base" : "text-sm"
                 }`}>
                   {expandedPost === post.id ? (
                     <>
-                      {post.excerpt} {post.fullContent}
+                      {renderContentWithCalendlyLink(post.excerpt + " " + post.fullContent)}
                     </>
                   ) : (
                     <>
                       {post.excerpt.slice(0, 150)}...
                     </>
                   )}
-                </p>
+                </div>
 
                 <button
                   onClick={() => setExpandedPost(expandedPost === post.id ? null : post.id)}
