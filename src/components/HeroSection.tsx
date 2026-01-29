@@ -16,11 +16,23 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background - solid navy on mobile, image on desktop */}
+      {/* Background - different layouts for mobile and desktop */}
       <div className="absolute inset-0">
         {/* Dark navy base background - always visible */}
         <div className="absolute inset-0 bg-secondary" />
-        {/* Image container - hidden on mobile, visible on md+ screens */}
+        
+        {/* MOBILE: Full background image with strong overlay */}
+        <div className="absolute inset-0 md:hidden">
+          <img
+            src={heroImage}
+            alt="Professional woman executive"
+            className="h-full w-full object-cover object-top"
+          />
+          {/* Strong gradient overlay for text readability on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/70 via-secondary/50 to-secondary/80" />
+        </div>
+        
+        {/* DESKTOP: Image positioned on right half only */}
         <div className="absolute right-0 top-0 h-full w-1/2 lg:w-[45%] hidden md:block">
           <img
             src={heroImage}
@@ -30,8 +42,9 @@ export const HeroSection = () => {
           {/* Soft fade from left edge of image */}
           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/60 via-30% to-transparent" />
         </div>
-        {/* Subtle top/bottom gradient for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-secondary/20" />
+        
+        {/* Subtle top/bottom gradient for depth - desktop only */}
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-secondary/20 hidden md:block" />
       </div>
 
       {/* Content - positioned left */}
