@@ -9,8 +9,9 @@ const categories = ["All", "Burnout", "Wellness", "Performance", "Leadership"];
 const blogPosts = [
   {
     id: 1,
-    title: "Why High-Performers Burn Out Faster Than Everyone Else",
-    excerpt: "The traits that make you successful, ambition, drive, perfectionism, are often the same traits that lead to burnout. Understanding this paradox is the first step to sustainable performance.",
+    title: "How High-Achieving Women Silently Lose Their Edge And the 10-Minute Daily Practice That Brings It Back",
+    excerpt: "As high-achieving women, we know what it feels like to carry the weight of doing it all well. We show up strong, deliver results, guide teams, make tough calls, and still manage the quiet load at home. The truth is, this constant pushing leads to a slow, silent depletion that we often don't name until it's too late.",
+    fullContent: "The science behind this is clear and consistent. When stress lingers without enough recovery, the body's fight-or-flight system stays engaged. Cortisol and adrenaline stay high, attention tightens to what's urgent, and flexible thinking gives way to automatic habits. The good news is that we can change this pattern. It starts with gentle, honest observation of ourselves. Take ten minutes in the morning and evening to check in: What's my pulse doing? How deep is my breath? Where is tension living in my body?",
     date: "January 15, 2026",
     readTime: "5 min read",
     category: "Burnout",
@@ -18,8 +19,9 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "The Hidden Cost of Always Being Fine",
-    excerpt: "When you've built your identity around being capable and reliable, admitting you're struggling feels impossible. But the mask of competence has a price.",
+    title: "Why Most High-Performing Women Are Leading on Empty And the One Daily Habit That Changes Everything",
+    excerpt: "We show up for excellence at work, leading teams, hitting targets, handling crises, while also holding the invisible responsibilities at home, caregiving, and the constant effort to appear completely together. This strain builds slowly. On the surface, everything looks solid. But inside, the space for real nuance starts to close.",
+    fullContent: "Change starts with honest self-compassion. Spend ten minutes morning and evening noticing your state without fixing it: check your pulse, breath depth, tension spots, thought patterns. Note one moment where you felt yourself contract. These small acts reveal what's really happening. In 2026, we don't have to lead from exhaustion. Regulated capacity lets us meet demands while staying connected to ourselves.",
     date: "January 10, 2026",
     readTime: "7 min read",
     category: "Wellness",
@@ -27,8 +29,9 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Decision Fatigue: Why Your Best Thinking Happens Before Noon",
-    excerpt: "Research shows executives make their best decisions in the morning. Learn how to restructure your day to protect your cognitive resources.",
+    title: "Why Always-On Is Stealing Your Sharpest Thinking And the 10-Minute Boundary That Gets It Back",
+    excerpt: "We have allowed our phones to own us. We wake up to notifications, we fall asleep scrolling replies, and somewhere in between we convince ourselves that being instantly available is the same as being effective. In 2026, that lie is costing us more than we admit.",
+    fullContent: "Our bodies are not servers. They are not designed for perpetual uptime. When the pings never stop, the nervous system never stands down. Start small and honest. Notice what happens in your body when the next notification lands. Feel the micro-jolt, the breath catch, the impulse to respond instantly. Do not judge it. Just notice it. Ten minutes twice a day is enough to begin rewiring the habit. Boundaries are not rude. They are the single most powerful leadership statement you can make.",
     date: "January 5, 2026",
     readTime: "6 min read",
     category: "Performance",
@@ -36,8 +39,9 @@ const blogPosts = [
   },
   {
     id: 4,
-    title: "The S.P.I.R.I.T Framework: A New Approach to Sustainable Success",
-    excerpt: "Traditional wellness advice doesn't work for high-achievers. Here's why a systems-based approach delivers better results than willpower alone.",
+    title: "Everyone Calls You Strong Until the Moment You Can't Be Anymore. There's a Better Way.",
+    excerpt: "You have heard it your whole career: you are so strong, so resilient, so unflappable. People admire it. They rely on it. You rely on it too. So when the body sends a signal, you push through. You tell yourself this is what strong looks like. Until one day the override stops working.",
+    fullContent: "This is not weakness. This is what happens when strength is defined as never showing strain. The cultural script praises women for being unbreakable, then judges them the moment they break. The shift begins with honest attention, not more effort. Take ten minutes morning and evening. Sit quietly and ask your body these questions: How is my breathing right now? Where is tension living? What thoughts are looping without rest? Reframe strength as regulated endurance rather than override.",
     date: "December 28, 2025",
     readTime: "8 min read",
     category: "Leadership",
@@ -45,8 +49,9 @@ const blogPosts = [
   },
   {
     id: 5,
-    title: "Sleep Isn't a Reward It's Infrastructure",
-    excerpt: "Most high-performers treat sleep as optional. But sleep is the foundation that everything else, focus, mood, resilience, is built upon.",
+    title: "How to Say No Without the Guilt Tax That Follows",
+    excerpt: "You already know how to say no. The real problem is what happens thirty seconds later. The wave of guilt arrives, fast and familiar. You second-guess yourself. You wonder if you sounded too harsh. That is the guilt tax. It is paid in energy, in peace, in time you can never get back.",
+    fullContent: "This is not about lacking assertiveness. It is about the internal cost of using it. The good news is you can reduce the tax. Start with honest attention to the body. When a request lands and the yes reflex kicks in, pause for ten seconds. Notice what happens inside. Name it without judgement. In 2026, saying no is not selfish. It is strategic. It is the difference between leading from depletion and leading from regulated capacity.",
     date: "December 20, 2025",
     readTime: "4 min read",
     category: "Wellness",
@@ -81,7 +86,7 @@ export const BlogSection = () => {
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             Evidence-based insights on performance, burnout prevention, and sustainable success 
-            for high-performing professionals.
+            for high-performing professional women.
           </p>
         </motion.div>
 
@@ -154,9 +159,17 @@ export const BlogSection = () => {
                 </h3>
 
                 <p className={`text-muted-foreground leading-relaxed mb-4 ${
-                  index === 0 ? "text-base" : "text-sm line-clamp-3"
+                  index === 0 ? "text-base" : "text-sm"
                 }`}>
-                  {expandedPost === post.id ? post.excerpt : post.excerpt.slice(0, 120) + "..."}
+                  {expandedPost === post.id ? (
+                    <>
+                      {post.excerpt} {post.fullContent}
+                    </>
+                  ) : (
+                    <>
+                      {post.excerpt.slice(0, 150)}...
+                    </>
+                  )}
                 </p>
 
                 <button
