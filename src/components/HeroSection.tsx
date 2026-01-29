@@ -16,12 +16,12 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background Image - positioned far right, not overlapping content */}
+      {/* Background - solid navy on mobile, image on desktop */}
       <div className="absolute inset-0">
-        {/* Dark navy base background */}
+        {/* Dark navy base background - always visible */}
         <div className="absolute inset-0 bg-secondary" />
-        {/* Image container - positioned on right half only */}
-        <div className="absolute right-0 top-0 h-full w-1/2 lg:w-[45%]">
+        {/* Image container - hidden on mobile, visible on md+ screens */}
+        <div className="absolute right-0 top-0 h-full w-1/2 lg:w-[45%] hidden md:block">
           <img
             src={heroImage}
             alt="Professional woman executive"
