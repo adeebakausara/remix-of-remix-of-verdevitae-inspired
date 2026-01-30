@@ -85,7 +85,7 @@ export const TestimonialsSection = () => {
               className="relative z-10"
             >
               <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-white leading-relaxed mb-8 pl-8">
-                "{testimonials[currentIndex].quote}"
+                {testimonials[currentIndex].quote}
               </blockquote>
               <div className="flex items-center gap-4 pl-8">
                 <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
@@ -155,7 +155,7 @@ export const TestimonialsSection = () => {
             >
               <Quote className="w-8 h-8 text-primary/30 mb-4" />
               <p className="text-foreground/80 text-sm leading-relaxed mb-4">
-                "{testimonial.quote}"
+                {testimonial.quote}
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
