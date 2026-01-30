@@ -41,15 +41,11 @@ export const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-secondary/60 backdrop-blur-sm lg:bg-transparent"
+          : "bg-transparent"
       }`}
-      style={{ 
-        paddingTop: 'env(safe-area-inset-top, 0px)',
-      }}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Mobile: 56px height, Desktop: 80px height */}
-        <div className="flex items-center justify-between h-14 lg:h-20">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a
             href="#home"
@@ -62,9 +58,9 @@ export const Header = () => {
             <img 
               src={logo} 
               alt="Verde Vitae Woman" 
-              className="w-8 h-8 lg:w-10 lg:h-10 rounded-full object-cover"
+              className="w-10 h-10 rounded-full object-cover"
             />
-            <span className={`font-serif text-lg lg:text-xl font-semibold ${isScrolled ? 'text-foreground' : 'text-white'}`}>
+            <span className={`font-serif text-xl font-semibold ${isScrolled ? 'text-foreground' : 'text-white'}`}>
               Verde Vitae <span className="text-primary">Woman</span>
             </span>
           </a>
