@@ -18,6 +18,10 @@
 
 @layer base {
   :root {
+    /* Header height for layout calculations */
+    --header-height: 56px;
+    --header-height-desktop: 80px;
+    
     /* Light theme - White background with proper text colors */
     --background: 0 0% 100%; /* #ffffff White */
     --foreground: 0 0% 0%; /* #000000 Black body text */

@@ -1,9 +1,11 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-woman.jpg";
 
 export const HeroSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+  
   const scrollToContact = () => {
     const element = document.querySelector("#contact");
     if (element) {
@@ -11,13 +13,17 @@ export const HeroSection = () => {
     }
   };
 
+  const animationProps = shouldReduceMotion 
+    ? { initial: { opacity: 1, y: 0 }, animate: { opacity: 1, y: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 } };
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background - same layout for mobile and desktop */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 -z-10">
         {/* Dark navy base background */}
         <div className="absolute inset-0 bg-secondary" />
         
@@ -26,7 +32,7 @@ export const HeroSection = () => {
           <img
             src={heroImage}
             alt="Professional woman executive"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-[75%_20%] lg:object-center"
           />
           {/* Soft fade from left edge of image */}
           <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/60 via-30% to-transparent" />
@@ -36,99 +42,115 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-secondary/20" />
       </div>
 
-      {/* Content - positioned left */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
-        <div className="max-w-2xl">
+      {/* Content - positioned left with proper header offset */}
+      <div 
+        className="container mx-auto px-4 lg:px-8 relative z-10 pb-16"
+        style={{ 
+          paddingTop: 'calc(var(--header-height) + env(safe-area-inset-top, 0px) + 2rem)',
+        }}
+      >
+        <div className="max-w-2xl pt-8 lg:pt-12">
+          {/* S.P.I.R.I.T label - smaller, more letter spacing, breathing room */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            {...animationProps}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-6 lg:mb-4"
           >
-            <span className="inline-block text-primary font-medium tracking-wide uppercase text-sm mb-4">
+            <span className="inline-block text-primary font-medium tracking-[0.2em] uppercase text-[10px] lg:text-xs">
               The S.P.I.R.I.T Framework
             </span>
           </motion.div>
 
+          {/* Headline with responsive clamp typography and max-width constraint */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            {...animationProps}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6 text-white"
+            className="font-serif font-medium leading-[1.15] mb-6 text-white"
+            style={{ 
+              fontSize: 'clamp(2.125rem, 5vw + 1rem, 3.75rem)',
+              maxWidth: '28ch',
+            }}
           >
-            The problem isn't that you can't cope.{" "}
+            The problem is not that you cannot cope.{" "}
             <span className="text-primary">
-              It's what coping is costing you.
+              It is what coping is costing you.
             </span>
           </motion.h1>
 
+          {/* Body text with proper line height and max-width */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            {...animationProps}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-white/80 leading-relaxed mb-8 max-w-xl"
+            className="text-white/80 mb-8"
+            style={{
+              fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.25rem)',
+              lineHeight: '1.6',
+              maxWidth: '45ch',
+            }}
           >
-            You're functioning, but decision quality is slipping, patience is thinner 
+            You are functioning, but decision quality is slipping, patience is thinner 
             than it used to be, and recovery no longer happens on its own. If nothing 
             changes, this becomes permanent rather than temporary.
           </motion.p>
 
+          {/* Buttons - full width on mobile, cleaner layout */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            {...animationProps}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
+            {/* Primary CTA - full width on mobile */}
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium px-8 py-6 text-base group"
+              className="w-full sm:w-auto bg-accent text-accent-foreground hover:bg-accent/90 font-medium px-6 lg:px-8 py-5 lg:py-6 text-sm lg:text-base group"
             >
               Book a Private Consultation
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button
+            
+            {/* Secondary CTA - text link style on mobile, outline on desktop */}
+            <button
               onClick={() => {
                 const element = document.querySelector("#services");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
-              size="lg"
-              variant="outline"
-              className="border-white/50 bg-transparent text-white hover:bg-white/10 hover:text-white font-medium px-8 py-6 text-base"
+              className="w-full sm:w-auto text-white/90 hover:text-white font-medium text-sm lg:text-base py-3 sm:py-0 sm:px-6 lg:px-8 sm:border sm:border-white/30 sm:rounded-md sm:hover:bg-white/10 transition-colors underline sm:no-underline underline-offset-4"
             >
               Learn About S.P.I.R.I.T
-            </Button>
+            </button>
           </motion.div>
 
           {/* Trust indicators */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="mt-12 pt-8 border-t border-white/20"
+            className="mt-10 lg:mt-12 pt-6 lg:pt-8 border-t border-white/20"
           >
-            <p className="text-sm text-white/70 mb-4">Trusted by high-performing women worldwide</p>
-            <div className="flex flex-wrap gap-6 items-center text-white/50">
-              <span className="text-xs uppercase tracking-widest">Executives</span>
-              <span className="w-1 h-1 rounded-full bg-white/40" />
-              <span className="text-xs uppercase tracking-widest">Entrepreneurs</span>
-              <span className="w-1 h-1 rounded-full bg-white/40" />
-              <span className="text-xs uppercase tracking-widest">Professionals</span>
-              <span className="w-1 h-1 rounded-full bg-white/40" />
-              <span className="text-xs uppercase tracking-widest">Leaders</span>
+            <p className="text-xs lg:text-sm text-white/70 mb-3 lg:mb-4">Trusted by high-performing women worldwide</p>
+            <div className="flex flex-wrap gap-4 lg:gap-6 items-center text-white/50">
+              <span className="text-[10px] lg:text-xs uppercase tracking-widest">Executives</span>
+              <span className="w-1 h-1 rounded-full bg-white/40 hidden sm:block" />
+              <span className="text-[10px] lg:text-xs uppercase tracking-widest">Entrepreneurs</span>
+              <span className="w-1 h-1 rounded-full bg-white/40 hidden sm:block" />
+              <span className="text-[10px] lg:text-xs uppercase tracking-widest">Professionals</span>
+              <span className="w-1 h-1 rounded-full bg-white/40 hidden sm:block" />
+              <span className="text-[10px] lg:text-xs uppercase tracking-widest">Leaders</span>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - behind content, respects reduced motion */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: shouldReduceMotion ? 1 : 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 -z-0 pointer-events-none"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={shouldReduceMotion ? {} : { y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center text-white/60"
         >
