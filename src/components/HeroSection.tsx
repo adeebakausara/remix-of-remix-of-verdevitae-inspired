@@ -14,14 +14,16 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex flex-col md:flex-row md:items-center overflow-hidden"
     >
-      {/* Background - same layout for mobile and desktop */}
-      <div className="absolute inset-0">
-        {/* Dark navy base background */}
+      {/* Mobile: Stacked layout - Image at top, then content below */}
+      {/* Desktop: Side-by-side with image on right */}
+      
+      {/* Background for desktop - dark navy base */}
+      <div className="hidden md:block absolute inset-0">
         <div className="absolute inset-0 bg-secondary" />
         
-        {/* Image positioned on right side for all screen sizes */}
+        {/* Image positioned on right side for desktop */}
         <div className="absolute right-0 top-0 h-full w-1/2 lg:w-[45%]">
           <img
             src={heroImage}
@@ -36,8 +38,101 @@ export const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-secondary/20" />
       </div>
 
-      {/* Content - positioned left */}
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
+      {/* Mobile: Image section at top */}
+      <div className="md:hidden relative w-full h-[40vh] flex-shrink-0">
+        <img
+          src={heroImage}
+          alt="Professional woman executive"
+          className="h-full w-full object-cover object-top"
+        />
+        {/* Gradient fade to navy at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-50% to-secondary" />
+      </div>
+
+      {/* Mobile: Content section with solid navy background */}
+      <div className="md:hidden flex-1 bg-secondary px-4 pb-8 -mt-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <span className="inline-block text-primary font-medium tracking-wide uppercase text-sm mb-4">
+            The S.P.I.R.I.T Framework
+          </span>
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="font-serif text-3xl sm:text-4xl font-medium leading-tight mb-6 text-white"
+        >
+          The problem isn't that you can't cope.{" "}
+          <span className="text-primary">
+            It's what coping is costing you.
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-base text-white/80 leading-relaxed mb-8"
+        >
+          You're functioning, but decision quality is slipping, patience is thinner 
+          than it used to be, and recovery no longer happens on its own. If nothing 
+          changes, this becomes permanent rather than temporary.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col gap-4"
+        >
+          <Button
+            onClick={scrollToContact}
+            size="lg"
+            className="bg-accent text-accent-foreground hover:bg-accent/90 font-medium px-8 py-6 text-base group w-full"
+          >
+            Book a Private Consultation
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Button>
+          <Button
+            onClick={() => {
+              const element = document.querySelector("#services");
+              if (element) element.scrollIntoView({ behavior: "smooth" });
+            }}
+            size="lg"
+            variant="outline"
+            className="border-white/50 bg-transparent text-white hover:bg-white/10 hover:text-white font-medium px-8 py-6 text-base w-full"
+          >
+            Learn About S.P.I.R.I.T
+          </Button>
+        </motion.div>
+
+        {/* Trust indicators */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="mt-8 pt-6 border-t border-white/20"
+        >
+          <p className="text-sm text-white/70 mb-4">Trusted by high-performing women worldwide</p>
+          <div className="flex flex-wrap gap-4 items-center text-white/50">
+            <span className="text-xs uppercase tracking-widest">Executives</span>
+            <span className="w-1 h-1 rounded-full bg-white/40" />
+            <span className="text-xs uppercase tracking-widest">Entrepreneurs</span>
+            <span className="w-1 h-1 rounded-full bg-white/40" />
+            <span className="text-xs uppercase tracking-widest">Professionals</span>
+            <span className="w-1 h-1 rounded-full bg-white/40" />
+            <span className="text-xs uppercase tracking-widest">Leaders</span>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Desktop: Content - positioned left */}
+      <div className="hidden md:block container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
