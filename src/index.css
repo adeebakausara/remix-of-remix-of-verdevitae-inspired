@@ -164,9 +164,9 @@
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - positioned outside content */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -174,10 +174,30 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground));
-  border-radius: 4px;
+  background: hsl(var(--muted-foreground) / 0.5);
+  border-radius: 5px;
+  border: 2px solid hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--primary));
+}
+
+/* Ensure scrollbar never overlaps content */
+html {
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* All scrollable containers should have proper padding */
+.scroll-container,
+[class*="overflow-y-auto"],
+[class*="overflow-auto"] {
+  scrollbar-gutter: stable;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
 }
