@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
 const testimonials = [
   {
@@ -74,8 +74,6 @@ export const TestimonialsSection = () => {
           className="max-w-4xl mx-auto mb-16"
         >
           <div className="relative bg-secondary rounded-2xl p-8 lg:p-12 card-shadow">
-            <Quote className="absolute top-8 left-8 w-12 h-12 text-primary/30" />
-            
             <motion.div
               key={currentIndex}
               initial={{ opacity: 0, x: 20 }}
@@ -153,7 +151,6 @@ export const TestimonialsSection = () => {
               key={index}
               className="bg-background rounded-xl p-6 border border-border card-shadow"
             >
-              <Quote className="w-8 h-8 text-primary/30 mb-4" />
               <p className="text-foreground/80 text-sm leading-relaxed mb-4">
                 {testimonial.quote}
               </p>
