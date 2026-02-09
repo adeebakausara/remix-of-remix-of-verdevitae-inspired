@@ -57,8 +57,24 @@ export const Footer = () => {
           </button>
         </div>
 
+        {/* Verde Vitae Connection */}
+        <div className="mt-8 pt-6 border-t border-white/10 text-center">
+          <p className="text-sm text-white/70">
+            Verde Vitae Woman is part of the{" "}
+            <a
+              href="https://www.verdevitae.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              Verde Vitae
+            </a>{" "}
+            family, the philosophy and system behind everything we do.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <div className="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>
             Website: <a href="https://verdevitae.com" className="text-primary hover:underline">verdevitae.com</a>
           </p>
