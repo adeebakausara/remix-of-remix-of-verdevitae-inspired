@@ -108,7 +108,7 @@ export const ServicesSection = () => {
           </div>
           
           <p className="text-center mt-8 text-white font-medium">
-            We don't "fix" these individually. <span className="text-primary">We stabilise the system they sit inside.</span>
+            We don't fix these individually. <span className="text-primary">We stabilise the system they sit inside.</span>
           </p>
         </motion.div>
 
