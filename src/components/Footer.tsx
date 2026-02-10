@@ -76,7 +76,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-6 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50">
           <p>
-            Website: <a href="https://verdevitae.com" className="text-primary hover:underline">verdevitae.com</a>
+            Verde Vitae is an Isle of Man registered business. Company Number 137127C
           </p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
